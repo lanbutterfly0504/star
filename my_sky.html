@@ -7,10 +7,66 @@
 <bdo dir="rtl">MY SKY</bdo>
 <h1 style="color:white">スターノートブック </h1>
 <p style="color:white">思塔爾記事</p>
-	
+<!--環繞跳舞星星_開始-->
+<SCRIPT language=javascript>
+<!--
+var cx=0;
+var cy=0;
+var val=0;
+function locate()
+{ cx=window.event.x;
+cy=window.event.y;
+}
+document.onmousemove=locate;
+function follow(i)
+{ var x;
+if(i<4)x=cx-50+i*10;
+else x=cx-25+i*10;
+var y=cy-20+Math.floor(Math.random()*40);
+w=eval("word"+i);
+with(w.style)
+{
+left=x.toString()+"px";
+top=y.toString()+"px";
+}}
+function show(i)
+{ 
+var w=eval("word"+i);
+with(w.style)
+{
+visibility="visible";
+s=parseInt(fontSize);
+if(s>=200)s-=100;
+else if(s>90&&s<=100)
+{
+s-=85;
+clearInterval(val);
+if(i<7)val=setInterval("show("+(i+1)+")",20);
+} 
+fontSize=s;
+}}
+function start()
+{ for(i=1;i<=7;i++)
+{
+val=setInterval("show(1)",20);
+setInterval("follow("+i+")",100);
+}} 
+//-->
+</SCRIPT>
+
+<SCRIPT language=javascript>
+<!--
+var word=new Array(7);
+word[1]="☆";word[2]="★";word[3]="☆";word[4]="★";word[5]="☆";word[6]="★";word[7]="☆";
+for(i=1;i<=7;i++)
+document.write("<div id='word"+i+"' style='width:200px;height:200px;position:absolute;font-size:100;visibility:hidden'><font color='#CC0000'>"+word[i]+"</font></div>");start();
+-->
+</SCRIPT>
+<!--環繞跳舞星星_結束-->	
 <body style="background-color:black">	
 <title>MY SKY</title>
 </head>
+	
 <CENTER>
 <img src= "2018-02-19 15.01.24.jpg" width= "1300" height="450" />
 
